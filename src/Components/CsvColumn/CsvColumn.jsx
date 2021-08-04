@@ -23,7 +23,12 @@ const CsvColumn = (props) => {
     <TableCell key={props.key} align={props.align}>
       <div className={classes.root}>
         <img src={logo} alt="logo" className={classes.image} />
-        <Link href="#" color="Primary" underline="none">
+        <Link
+          target="_blank"
+          href="https://www.google.com/search?q=csv&oq=csv&aqs=chrome..69i57j0i67i433j0i67l3j0i67i131i433j0i67j0i67i131i433l2.571j0j15&sourceid=chrome&ie=UTF-8"
+          color="Primary"
+          underline="none"
+        >
           CSV
         </Link>
       </div>
