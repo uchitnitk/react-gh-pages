@@ -121,8 +121,8 @@ const TableComponent = (props) => {
                       key="date"
                       align="left"
                     />
-                    <CampaignColumn region={row.region} name={row.name} />
-                    <Pricing />
+                    <CampaignColumn row={row} />
+                    <Pricing row={row} />
                     <CsvColumn />
                     <ReportColumn />
                     <ScheduleColumn

@@ -67,14 +67,10 @@ const TabView = () => {
   }, []);
 
   useEffect(() => {
-    console.log(upcomingCampaign);
-    console.log(pastCampaign);
-    console.log(liveCampaign);
     if (changeCounter !== 0) {
       let live = [];
       let upComing = [];
       let past = [];
-      console.log("hello2");
       upcomingCampaign.forEach((row) => {
         const nowTimestamp = new Date(Date.now());
         if (nowTimestamp - row.createdOn > 0) {
