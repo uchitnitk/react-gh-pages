@@ -90,5 +90,18 @@ const data = [
     report: "Some report link for Mancala Mix",
     image_url: "7.png",
   },
+  {
+    name: "Mancala Mix",
+    region: "JP",
+    createdOn: 1627792890187,
+    price: {
+      month: "100.00",
+      halfYear: "500.00",
+      year: "900.00",
+    },
+    csv: "Some CSV link for Mancala Mix",
+    report: "Some report link for Mancala Mix",
+    image_url: "8.png",
+  },
 ];
 export default data;
