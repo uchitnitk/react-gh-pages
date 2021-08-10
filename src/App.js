@@ -2,6 +2,11 @@ import React from "react";
 import { withTranslation } from "react-i18next";
 import Header from "./Components/Header/Header";
 import TabView from "./Components/TabView/TabView";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -16,34 +21,27 @@ class App extends React.Component {
     this.props.i18n.changeLanguage(newLang);
   };
 
+  divStyle = {
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+  };
+
   renderRadioButtons = () => {
     return (
-      <div>
-        <input
-          checked={this.state.value === "en"}
-          name="language"
-          onChange={(e) => this.onLanguageHandle(e)}
-          value="en"
-          type="radio"
-        />
-        English &nbsp;
-        <input
-          name="language"
-          value="jp"
-          checked={this.state.value === "jp"}
-          type="radio"
-          onChange={(e) => this.onLanguageHandle(e)}
-        />
-        Japanese &nbsp;
-        <input
-          name="language"
-          value="de"
-          checked={this.state.value === "de"}
-          type="radio"
-          onChange={(e) => this.onLanguageHandle(e)}
-        />
-        German
-      </div>
+      <FormControl component="fieldset" style={this.divStyle}>
+        <RadioGroup
+          aria-label="Language"
+          name="Language"
+          value={this.state.value}
+          onChange={this.onLanguageHandle}
+          row
+        >
+          <FormControlLabel value="en" control={<Radio />} label="English" />
+          <FormControlLabel value="de" control={<Radio />} label="German" />
+          <FormControlLabel value="jp" control={<Radio />} label="Japanese" />
+        </RadioGroup>
+      </FormControl>
     );
   };
   render() {
