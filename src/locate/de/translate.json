@@ -1,5 +1,15 @@
 {
   "translations": {
-    "heading": "Kampagnen verwalten"
+    "heading": "Kampagnen verwalten",
+    "liveHeading": "WOHNEN KAMPAGNEN",
+    "upcomingHeading": "BEVORSTEHENDE KAMPAGNEN",
+    "pastHeading": "VORBEI AN CAMPAIGNS",
+    "date": "DATUM",
+    "campaign": "KAMPAGNEN",
+    "view": "ANSICHT",
+    "action": "AKTION",
+    "ahead": "Tage im Voraus",
+    "ago": "Vor Tagen",
+    "today": "Heute"
   }
 }

@@ -39,7 +39,7 @@ class App extends React.Component {
         >
           <FormControlLabel value="en" control={<Radio />} label="English" />
           <FormControlLabel value="de" control={<Radio />} label="German" />
-          <FormControlLabel value="jp" control={<Radio />} label="Japanese" />
+          {/* <FormControlLabel value="jp" control={<Radio />} label="Japanese" /> */}
         </RadioGroup>
       </FormControl>
     );

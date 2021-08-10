@@ -2,6 +2,7 @@ import React from "react";
 import TableCell from "@material-ui/core/TableCell";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import { withTranslation } from "react-i18next";
 
 const months = [
   "Jan",
@@ -27,25 +28,27 @@ const getDate = (timestamp) => {
   return newdate;
 };
 
-const getDifferenceOfDates = (index, date) => {
+const getDifferenceOfDates = (index, date, t) => {
   const nowDate = new Date();
   const diffTime = Math.abs(nowDate - date);
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   let diffDaysString = "";
   if (index === 0) {
-    diffDaysString = `${diffDays} Days Ahead`;
+    diffDaysString = `${diffDays} ${t("ahead")}`;
   } else if (index === 1) {
-    diffDaysString = "Today";
+    diffDaysString = `${t("today")}`;
   } else {
-    diffDaysString = `${diffDays} Days Ago`;
+    diffDaysString = `${diffDays} ${t("ago")}`;
   }
   return diffDaysString;
 };
 const DateColumn = (props) => {
+  const { t } = props;
   const date = getDate(props.timestamp);
   const diffOfDates = getDifferenceOfDates(
     props.index,
-    new Date(props.timestamp)
+    new Date(props.timestamp),
+    t
   );
 
   return (
@@ -66,4 +69,5 @@ const DateColumn = (props) => {
     </TableCell>
   );
 };
-export default DateColumn;
+
+export default withTranslation()(DateColumn);

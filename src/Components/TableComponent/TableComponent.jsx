@@ -14,37 +14,7 @@ import Pricing from "../Pricing/Pricing";
 import CsvColumn from "../CsvColumn/CsvColumn";
 import ReportColumn from "../ReportColumn/ReportColumn";
 import ScheduleColumn from "../ScheduleColumn/ScheduleColumn";
-
-const columns = [
-  { id: "date", label: "DATE", minWidth: 130, align: "left" },
-  { id: "campaign", label: "CAMPAIGN", minWidth: 130, align: "left" },
-  {
-    id: "view",
-    label: "VIEW",
-    minWidth: 130,
-    align: "left",
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "action",
-    label: "ACTION",
-    minWidth: 130,
-    align: "left",
-    format: (value) => value.toLocaleString("en-US"),
-  },
-  {
-    id: "report",
-    minWidth: 130,
-    align: "left",
-    format: (value) => value.toFixed(2),
-  },
-  {
-    id: "schedule",
-    minWidth: 130,
-    align: "left",
-    format: (value) => value.toFixed(2),
-  },
-];
+import { withTranslation } from "react-i18next";
 
 const createData = (date, campaign, view, action) => {
   const report = view / action;
@@ -92,6 +62,49 @@ const TableComponent = (props) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  const { t } = props;
+  const localizedLabels = [t("date"), t("campaign"), t("view"), t("action")];
+  const columns = [
+    {
+      id: "date",
+      label: `${localizedLabels[0]}`,
+      minWidth: 130,
+      align: "left",
+    },
+    {
+      id: "campaign",
+      label: `${localizedLabels[1]}`,
+      minWidth: 130,
+      align: "left",
+    },
+    {
+      id: "view",
+      label: `${localizedLabels[2]}`,
+      minWidth: 130,
+      align: "left",
+      format: (value) => value.toLocaleString("en-US"),
+    },
+    {
+      id: "action",
+      label: `${localizedLabels[3]}`,
+      minWidth: 130,
+      align: "left",
+      format: (value) => value.toLocaleString("en-US"),
+    },
+    {
+      id: "report",
+      minWidth: 130,
+      align: "left",
+      format: (value) => value.toFixed(2),
+    },
+    {
+      id: "schedule",
+      minWidth: 130,
+      align: "left",
+      format: (value) => value.toFixed(2),
+    },
+  ];
   return (
     <Paper className={classes.root}>
       <TableContainer className={classes.container}>
@@ -148,4 +161,4 @@ const TableComponent = (props) => {
   );
 };
 
-export default TableComponent;
+export default withTranslation()(TableComponent);

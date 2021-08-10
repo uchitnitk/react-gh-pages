@@ -1,5 +1,15 @@
 {
   "translations": {
-    "heading": "Manage Campaigns"
+    "heading": "Manage Campaigns",
+    "liveHeading": "LIVE CAMPAIGNS",
+    "upcomingHeading": "UPCOMING CAMPAIGNS",
+    "pastHeading": "PAST CAMPAIGNS",
+    "date": "DATE",
+    "campaign": "CAMPAIGN",
+    "view": "VIEW",
+    "action": "ACTION",
+    "ahead": "Days Ahead",
+    "ago": "Days Ago",
+    "today": "Today"
   }
 }

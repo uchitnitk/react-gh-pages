@@ -6,6 +6,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import TabPanel from "../TabPanel/TabPanel";
 import dataArray from "../../mockData/data";
+import { withTranslation } from "react-i18next";
 
 const a11yProps = (index) => {
   return {
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const TabView = () => {
+const TabView = (props) => {
   const classes = useStyles();
   const theme = useTheme();
   const [value, setValue] = useState(0);
@@ -116,6 +117,7 @@ const TabView = () => {
     }
   }, [changeCounter]);
 
+  const { t } = props;
   return (
     <div className={classes.root}>
       <AppBar position="static" color="default">
@@ -127,9 +129,9 @@ const TabView = () => {
           variant="fullWidth"
           aria-label="full width tabs example"
         >
-          <Tab label="Upcoming Campaigns" {...a11yProps(0)} />
-          <Tab label="Live Campaigns" {...a11yProps(1)} />
-          <Tab label="Past Campaigns" {...a11yProps(2)} />
+          <Tab label={t("upcomingHeading")} {...a11yProps(0)} />
+          <Tab label={t("liveHeading")} {...a11yProps(1)} />
+          <Tab label={t("pastHeading")} {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <SwipeableViews
@@ -163,4 +165,4 @@ const TabView = () => {
   );
 };
 
-export default TabView;
+export default withTranslation()(TabView);
